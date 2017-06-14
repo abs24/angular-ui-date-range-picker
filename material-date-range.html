@@ -1,0 +1,71 @@
+﻿<div class="btn-group mdrp-button-container" ng-click="toggleOpen()">
+    <button type="button" class="btn btn-default">{{getRedableDate(settings.from.date)}} - {{getRedableDate(settings.to.date)}}</button>
+    <button type="button" class="btn btn-default"><i class="fa fa-calendar"></i></button>
+</div>
+<ul class="dropdown-menu mdrp-dropdown-container" ng-if="isOpen" style="display: block" ng-style="{top: position.top+'px', left: position.left+'px'}" ng-click="$event.stopPropagation()">
+    <li class="mdrp-quick-container">
+        <button type="button" class="m-btn m-btn-md m-btn-light-grey btn-hover-effect" ng-click="setRange('today')">Today</button>
+        <button type="button" class="m-btn m-btn-md m-btn-light-grey btn-hover-effect" ng-click="setRange('Yesterday')">Yesterday</button>
+        <button type="button" class="m-btn m-btn-md m-btn-light-grey btn-hover-effect" ng-click="setRange('Last7')">Last 7 Days</button>
+        <button type="button" class="m-btn m-btn-md m-btn-light-grey btn-hover-effect" ng-click="setRange('Last29')">Last 29 Days</button>
+        <button type="button" class="m-btn m-btn-md m-btn-light-grey btn-hover-effect" ng-click="setRange('ThisMonth')" >This Month</button>
+        <button type="button" class="m-btn m-btn-md m-btn-light-grey btn-hover-effect" ng-click="setRange('LastMonth')">Last Month</button>
+        
+    </li>
+    <li class="mdrp-datepicker">
+        <datepicker ng-model="settings.from.date"></datepicker>
+        <datepicker ng-model="settings.to.date" ></datepicker>
+    </li>
+    <li class="mdrp-quick-container text-right">
+        <button type="button" class="m-btn m-btn-md m-btn-grey btn-hover-effect" ng-click="setRange('today')">Clear</button>
+        <button type="button" class="m-btn m-btn-md m-btn-success btn-hover-effect" ng-click="toggleOpen()">Done</button>
+    </li>
+    
+</ul>
+<style>
+  
+    .mdrp-dropdown-container .mdrp-datepicker > div{
+        display: inline-block;
+        margin: 10px;
+        border: 1px solid #e2e2e2;
+        vertical-align:top;
+    }
+    .mdrp-dropdown-container
+    {
+        min-width: 590px;
+    }
+    
+     .mdrp-dropdown-container table[ng-switch-when=month] button.btn.btn-default
+      
+    {
+         padding:20px 15px;
+    }
+     .mdrp-dropdown-container table[ng-switch-when=year] button.btn.btn-default{
+         padding:20px 15px;
+     }
+    .mdrp-button-container{
+
+    }
+    .mdrp-dropdown-container button.btn.btn-default{
+        border:none !important;
+        padding:10px;
+    }
+   
+     .mdrp-dropdown-container .btn-info.active
+    {
+      
+        background-color: #0db78c !important;
+        
+    }
+     .mdrp-dropdown-container .btn-info.active .text-info{
+         color:#FFF;
+     }
+    .mdrp-quick-container{
+        padding:10px;
+    }
+
+
+</style>
+
+
+
